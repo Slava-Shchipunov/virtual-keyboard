@@ -1,4 +1,6 @@
 /* Styles */
-.keyboard__raw {
+.keyboard__wrapper {
     display: flex;
+    flex-wrap: wrap;
+    width: 702px;
 }

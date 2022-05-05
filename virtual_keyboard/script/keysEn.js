@@ -1,6 +1,6 @@
 const keysEn = [
   {
-    code: 'Backquote', key: 'Dead',
+    code: 'Backquote', key: '`',
   },
   {
     code: 'Digit1', key: '1',
@@ -120,7 +120,7 @@ const keysEn = [
     code: 'Semicolon', key: ';',
   },
   {
-    code: 'Quote', key: 'Dead',
+    code: 'Quote', key: '\'',
   },
   {
     code: 'Enter', key: 'Enter',

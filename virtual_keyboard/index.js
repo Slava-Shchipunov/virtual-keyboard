@@ -5,6 +5,8 @@ import keysRuShift from './script/keysRuShift.js';
 
 import Button from './script/classButton.js';
 
+const body = document.querySelector('body');
+
 class Keyboard {
   constructor(name) {
     this.name = name;
@@ -19,25 +21,34 @@ class Keyboard {
     this.main.classList.add('keyboard');
     wrapper.classList.add('keyboard__wrapper');
 
-    for (let i = 0; i < 5; i++) {
-      const keyboardRaw = document.createElement('div');
-      wrapper.append(keyboardRaw);
+    for (let i = 0; i < keysEn.length; i += 1) {
+      const newButton = new Button(keysEn[i].key);
+      newButton.create();
 
-      keyboardRaw.classList.add('keyboard__raw');
-
-      for (let j = 0; j < keyValues[i].length; j++) {
-        const newButton = new Button(keyValues[i][j].value);
-        newButton.create();
-        body.append(newButton.button);
-      }
+      newButton.button.setAttribute('id', i);
+      wrapper.append(newButton.button);
     }
   }
 }
 
-const body = document.querySelector('body');
-/* const newKeyboard = new Keyboard();
+const newKeyboard = new Keyboard();
 newKeyboard.create();
-body.append(newKeyboard.button); */
+body.append(newKeyboard.main);
+
+window.addEventListener('keydown', (event) => {
+  const obj = {
+    code: event.code,
+    key: event.key,
+  };
+  console.log(obj);
+});
+
+newKeyboard.main.addEventListener('click', (event) => {
+  window.dispatchEvent(new KeyboardEvent('keydown', {
+    key: keysEn[event.target.id].key,
+    code: keysEn[event.target.id].code,
+  }));
+});
 
 /* const array = [
 
@@ -51,7 +62,7 @@ window.addEventListener('keydown', (event) => {
   array.push(obj);
 })
 console.log(array); */
-const array = [
+/* const array = [
 
 ]
 const btn = document.createElement('button');
@@ -73,8 +84,8 @@ btn.addEventListener('click', () => {
       code: keyValues[0].code,
     })
   )
-  
-  /* const eve = new KeyboardEvent('keydown', {
+   */
+/* const eve = new KeyboardEvent('keydown', {
     key: keyValues[0].key,
     code: keyValues[0].code,
   })
@@ -86,7 +97,7 @@ btn.addEventListener('click', () => {
     array.push(obj);
     console.log('ITS ARRAY: ' + array)
   }) */
-})
+// })
 
 /* const event = new KeyboardEvent('keydown', {
   key: keyValues[0].key,

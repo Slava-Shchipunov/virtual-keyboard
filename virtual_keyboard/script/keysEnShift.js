@@ -1,6 +1,6 @@
 const keysEnShift = [
   {
-    code: 'Backquote', key: 'Dead',
+    code: 'Backquote', key: '~',
   },
   {
     code: 'Digit1', key: '!',
@@ -18,7 +18,7 @@ const keysEnShift = [
     code: 'Digit5', key: '%',
   },
   {
-    code: 'Digit6', key: 'Dead',
+    code: 'Digit6', key: '^',
   },
   {
     code: 'Digit7', key: '&',
@@ -120,7 +120,7 @@ const keysEnShift = [
     code: 'Semicolon', key: ':',
   },
   {
-    code: 'Quote', key: 'Dead',
+    code: 'Quote', key: '"',
   },
   {
     code: 'Enter', key: 'Enter',
