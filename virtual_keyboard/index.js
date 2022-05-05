@@ -1,20 +1,9 @@
-import keysEn from './script/keysEn.js'
-import keysRu from './script/keysRu.js'
-import keysEnShift from './script/keysEnShift.js'
-import keysRuShift from './script/keysRuShift.js'
+import keysEn from './script/keysEn.js';
+import keysRu from './script/keysRu.js';
+import keysEnShift from './script/keysEnShift.js';
+import keysRuShift from './script/keysRuShift.js';
 
-class Button {
-  constructor(name) {
-    this.name = name;
-    this.button = null;
-  }
-
-  create() {
-    this.button = document.createElement('button');
-    this.button.textContent = this.name;
-    this.button.classList.add('button');
-  }
-}
+import Button from './script/classButton.js';
 
 class Keyboard {
   constructor(name) {
