@@ -26,6 +26,7 @@ class Keyboard {
       newButton.create();
 
       newButton.button.setAttribute('id', i);
+      newButton.button.setAttribute('data-key-name', keysEn[i].code);
       wrapper.append(newButton.button);
     }
   }
@@ -35,12 +36,19 @@ const newKeyboard = new Keyboard();
 newKeyboard.create();
 body.append(newKeyboard.main);
 
+function activeBtnHighlights(attribute) {
+  const element = document.querySelector(`[data-key-name=${attribute}]`);
+  element.classList.toggle('active-button');
+}
+
 window.addEventListener('keydown', (event) => {
   const obj = {
     code: event.code,
     key: event.key,
   };
   console.log(obj);
+
+  activeBtnHighlights(event.code);
 });
 
 newKeyboard.main.addEventListener('click', (event) => {
@@ -78,7 +86,6 @@ window.addEventListener('keydown', (event) => {
 })
 
 btn.addEventListener('click', () => {
-  
   window.dispatchEvent(new KeyboardEvent('keydown', {
       key: keyValues[0].key,
       code: keyValues[0].code,
