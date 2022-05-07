@@ -84,9 +84,6 @@ const keysEnShift = [
     code: 'Backslash', key: '|',
   },
   {
-    code: 'Delete', key: 'Delete',
-  },
-  {
     code: 'CapsLock', key: 'CapsLock',
   },
   {
@@ -162,13 +159,16 @@ const keysEnShift = [
     code: 'ShiftRight', key: 'Shift',
   },
   {
-    code: 'ArrowUp', key: 'ArrowUp',
+    code: 'ArrowUp', key: '\u25B3',
   },
   {
-    code: 'ControlLeft', key: 'Control',
+    code: 'Delete', key: 'Del',
   },
   {
-    code: 'MetaLeft', key: 'Meta',
+    code: 'ControlLeft', key: 'Ctrl',
+  },
+  {
+    code: 'MetaLeft', key: 'Win',
   },
   {
     code: 'AltLeft', key: 'Alt',
@@ -177,19 +177,19 @@ const keysEnShift = [
     code: 'Space', key: ' ',
   },
   {
-    code: 'AltRight', key: 'AltGraph',
+    code: 'AltRight', key: 'Alt',
   },
   {
-    code: 'ControlRight', key: 'Control',
+    code: 'ControlRight', key: 'Ctrl',
   },
   {
-    code: 'ArrowLeft', key: 'ArrowLeft',
+    code: 'ArrowLeft', key: '\u25C1',
   },
   {
-    code: 'ArrowDown', key: 'ArrowDown',
+    code: 'ArrowDown', key: '\u25BD',
   },
   {
-    code: 'ArrowRight', key: 'ArrowRight',
+    code: 'ArrowRight', key: '\u25B7',
   },
 ];
 
