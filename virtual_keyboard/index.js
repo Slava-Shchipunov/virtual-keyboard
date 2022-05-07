@@ -7,6 +7,28 @@ import Button from './script/classButton.js';
 
 const body = document.querySelector('body');
 
+let isShift = false;
+let isCapsLock = false;
+let lang = 'En';
+const arr = [];
+let keysArray = [];
+
+function keysArrayChanger() {
+  if (lang === 'En') {
+    keysArray = keysEn;
+  } else {
+    keysArray = keysRu;
+  }
+}
+
+function langChanger() {
+  if (lang === 'En') {
+    lang = 'Ru';
+  } else {
+    lang = 'En';
+  }
+}
+
 class Keyboard {
   constructor(name) {
     this.name = name;
@@ -21,12 +43,15 @@ class Keyboard {
     this.main.classList.add('keyboard');
     wrapper.classList.add('keyboard__wrapper');
 
-    for (let i = 0; i < keysEn.length; i += 1) {
-      const newButton = new Button(keysEn[i].key);
+    keysArrayChanger();
+
+    for (let i = 0; i < keysArray.length; i += 1) {
+      const newButton = new Button(keysArray[i].key);
       newButton.create();
+      arr.push(newButton);
 
       newButton.button.setAttribute('id', i);
-      newButton.button.setAttribute('data-key-name', keysEn[i].code);
+      newButton.button.setAttribute('data-key-name', keysArray[i].code);
       wrapper.append(newButton.button);
     }
   }
@@ -35,7 +60,7 @@ class Keyboard {
 const newKeyboard = new Keyboard();
 newKeyboard.create();
 body.append(newKeyboard.main);
-
+console.log(arr);
 function activeBtnHighlights(attribute) {
   const element = document.querySelector(`[data-key-name=${attribute}]`);
   element.classList.toggle('active-button');
@@ -49,13 +74,52 @@ window.addEventListener('keydown', (event) => {
   console.log(obj);
 
   activeBtnHighlights(event.code);
+
+  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+    if (lang === 'En') {
+      keysArray = keysEnShift;
+    } else {
+      keysArray = keysRuShift;
+    }
+
+    arr.forEach((element, index) => {
+      element.change(keysArray[index].key);
+    });
+  }
+
+  if (event.ctrlKey && event.code === 'AltLeft') {
+    langChanger();
+    keysArrayChanger();
+    arr.forEach((element, index) => {
+      element.change(keysArray[index].key);
+    });
+  }
 });
 
-newKeyboard.main.addEventListener('click', (event) => {
-  window.dispatchEvent(new KeyboardEvent('keydown', {
-    key: keysEn[event.target.id].key,
-    code: keysEn[event.target.id].code,
-  }));
+window.addEventListener('keyup', (event) => {
+  if (event.code !== 'ShiftLeft') {
+    setTimeout(() => {
+      activeBtnHighlights(event.code);
+    }, 120);
+  }
+});
+
+newKeyboard.main.addEventListener('mousedown', (event) => {
+  if (event.target.classList.contains('button')) {
+    window.dispatchEvent(new KeyboardEvent('keydown', {
+      key: keysEn[event.target.id].key,
+      code: keysEn[event.target.id].code,
+    }));
+  }
+});
+
+newKeyboard.main.addEventListener('mouseup', (event) => {
+  if (event.target.classList.contains('button')) {
+    window.dispatchEvent(new KeyboardEvent('keyup', {
+      key: keysEn[event.target.id].key,
+      code: keysEn[event.target.id].code,
+    }));
+  }
 });
 
 /* const array = [

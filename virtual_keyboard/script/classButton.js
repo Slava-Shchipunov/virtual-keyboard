@@ -9,6 +9,10 @@ class Button {
     this.button.textContent = this.name;
     this.button.classList.add('button');
   }
+
+  change(data) {
+    this.button.textContent = data;
+  }
 }
 
 export default Button;

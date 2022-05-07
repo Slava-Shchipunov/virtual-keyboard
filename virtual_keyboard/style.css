@@ -1,6 +1,6 @@
 @font-face {
   font-family: Arial;
-  src: url("../assets/fonts/Arial-Regular.woff");
+  src: url("assets/fonts/Arial-Regular.woff");
   font-style: normal;
   font-weight: 400;
 }
@@ -46,10 +46,7 @@
   border-left: solid 5px #E2E2E2;
   border-right: solid 5px #E2E2E2;
   border-bottom: solid 8px #E2E2E2;
-  transition: 0.2s ease-in-out;
-  /* font-family: Arial;
-  font-style: normal;
-  font-weight: 400; */
+  transition: 0.1s ease-in-out;
 }
 
 .button:hover {
