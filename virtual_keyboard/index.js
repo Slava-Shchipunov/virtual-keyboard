@@ -10,7 +10,7 @@ const body = document.querySelector('body');
 let isShift = false;
 let isCapsLock = false;
 let lang = 'En';
-const arr = [];
+const buttonsArray = [];
 let keysArray = [];
 
 function keysArrayChanger() {
@@ -48,7 +48,7 @@ class Keyboard {
     for (let i = 0; i < keysArray.length; i += 1) {
       const newButton = new Button(keysArray[i].key);
       newButton.create();
-      arr.push(newButton);
+      buttonsArray.push(newButton);
 
       newButton.button.setAttribute('id', i);
       newButton.button.setAttribute('data-key-name', keysArray[i].code);
@@ -60,7 +60,7 @@ class Keyboard {
 const newKeyboard = new Keyboard();
 newKeyboard.create();
 body.append(newKeyboard.main);
-console.log(arr);
+
 function activeBtnHighlights(attribute) {
   const element = document.querySelector(`[data-key-name=${attribute}]`);
   element.classList.toggle('active-button');
@@ -75,14 +75,33 @@ window.addEventListener('keydown', (event) => {
 
   activeBtnHighlights(event.code);
 
-  if (event.code === 'ShiftLeft' || event.code === 'ShiftRight') {
+  if (!isShift && (event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
     if (lang === 'En') {
       keysArray = keysEnShift;
     } else {
       keysArray = keysRuShift;
     }
 
-    arr.forEach((element, index) => {
+    isShift = true;
+
+    buttonsArray.forEach((element, index) => {
+      element.change(keysArray[index].key);
+    });
+  } else if (isShift) {
+    if (lang === 'En') {
+      keysArray = keysEn;
+    } else {
+      keysArray = keysRu;
+    }
+
+    const ShiftLeftBtn = buttonsArray[41].button;
+    ShiftLeftBtn.classList.remove('active-button');
+    const ShiftRightBtn = buttonsArray[52].button;
+    ShiftRightBtn.classList.remove('active-button');
+
+    isShift = false;
+
+    buttonsArray.forEach((element, index) => {
       element.change(keysArray[index].key);
     });
   }
@@ -90,14 +109,14 @@ window.addEventListener('keydown', (event) => {
   if (event.ctrlKey && event.code === 'AltLeft') {
     langChanger();
     keysArrayChanger();
-    arr.forEach((element, index) => {
+    buttonsArray.forEach((element, index) => {
       element.change(keysArray[index].key);
     });
   }
 });
 
 window.addEventListener('keyup', (event) => {
-  if (event.code !== 'ShiftLeft') {
+  if (event.code !== 'ShiftLeft' && event.code !== 'ShiftRight') {
     setTimeout(() => {
       activeBtnHighlights(event.code);
     }, 120);
