@@ -11,18 +11,71 @@
     font-family: inherit;
 }
 
+.body__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    gap: 15px;
+    padding: 15px;
+}
+
+.title {
+    font-size: $fz2;
+    line-height: $lh1;
+    color: $char-color-blue;
+    text-shadow: $key-top2 0px 0px 30px;
+    margin: 0 auto;
+}
+
+.textarea {
+    display: block;
+    border: 2px solid $key-top3;
+    border-radius: 4px;
+    background: rgba(255, 108, 75, 0.15);
+    outline: none;
+    box-sizing: border-box;
+    padding: 3px 18px;
+    max-width: 702px;
+    width: 100%;
+    height: 140px;
+    min-height: 100px;
+    margin-bottom: 30px;
+    resize: none;
+    margin: 0 auto;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 108, 75, 0.5);
+    border-radius: 10px;
+    outline: none;
+}
+
+textarea::-webkit-scrollbar {
+    width: 1em;
+}
+
+textarea::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px rgba(255, 108, 75, 0.3);
+}
+
+.info {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: $char-color-blue;
+    font-size: 1.15rem;
+}
+
 .keyboard {
-    position: fixed;
-    bottom: 20px;
-    left: calc((100vw - 702px) / 2);
     padding: 13px;
     background-color: $board-base-color;
     width: fit-content;
     border-radius: 4px;
-    margin: 0 auto;
     font-family: Arial, sans-serif;
     font-style: normal;
     font-weight: 400;
+    margin: 0 auto;
 }
 
 .keyboard__wrapper {
@@ -123,11 +176,6 @@
 }
 
 .active-button {
-    /* background-color: $key-border1;
-    border-top: solid 2px gray;
-    border-left: solid 5px gray;
-    border-right: solid 5px gray;
-    border-bottom: solid 8px gray; */
     background-color: $key-top2;
     border-top: solid 2px $key-border2;
     border-left: solid 5px $key-border2;
@@ -135,17 +183,3 @@
     border-bottom: solid 8px $key-border2;
     color: $char-color-blue;
 }
-
-/* .active-button[data-key-name="CapsLock"],
-.active-button[data-key-name="Enter"],
-.active-button[data-key-name="Space"],
-.active-button[data-key-name="ArrowUp"],
-.active-button[data-key-name="ArrowLeft"],
-.active-button[data-key-name="ArrowDown"],
-.active-button[data-key-name="ArrowRight"] {
-    background-color: $key-top2;
-    border-top: solid 2px $key-border2;
-    border-left: solid 5px $key-border2;
-    border-right: solid 5px $key-border2;
-    border-bottom: solid 8px $key-border2;
-} */

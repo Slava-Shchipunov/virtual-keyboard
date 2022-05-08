@@ -29,6 +29,41 @@ function langChanger() {
   }
 }
 
+function pageGenerator() {
+  const bodyWrapper = document.createElement('div');
+  body.append(bodyWrapper);
+  bodyWrapper.classList.add('body__wrapper');
+
+  const title = document.createElement('h1');
+  bodyWrapper.append(title);
+  title.textContent = 'RSS Virtual Keyboard';
+  title.classList.add('title');
+
+  const textarea = document.createElement('textarea');
+  bodyWrapper.append(textarea);
+  textarea.classList.add('textarea');
+
+  const info = document.createElement('div');
+  bodyWrapper.append(info);
+  info.classList.add('info');
+
+  const infoOS = document.createElement('span');
+  info.append(infoOS);
+  infoOS.textContent = 'The keyboard was created in the Windows operating system';
+  infoOS.classList.add('info');
+
+  const infoLangChange = document.createElement('span');
+  info.append(infoLangChange);
+  infoLangChange.textContent = 'To switch the language combination: left ctrl + left alt';
+  infoLangChange.classList.add('info');
+
+  const pageElements = [bodyWrapper, title, textarea, infoOS, infoLangChange];
+
+  return pageElements;
+}
+
+const [, , textarea] = pageGenerator();
+
 class Keyboard {
   constructor(name) {
     this.name = name;
@@ -59,7 +94,7 @@ class Keyboard {
 
 const newKeyboard = new Keyboard();
 newKeyboard.create();
-body.append(newKeyboard.main);
+textarea.after(newKeyboard.main);
 
 function activeBtnHighlights(attribute) {
   const element = document.querySelector(`[data-key-name=${attribute}]`);
