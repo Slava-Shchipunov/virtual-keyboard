@@ -123,7 +123,9 @@ textarea.after(newKeyboard.main);
 
 function activeBtnHighlights(attribute) {
   const element = document.querySelector(`[data-key-name=${attribute}]`);
-  element.classList.toggle('active-button');
+  if (element) {
+    element.classList.toggle('active-button');
+  }
 }
 
 function enterText(attribute) {
@@ -131,7 +133,9 @@ function enterText(attribute) {
 
   if (!functionalButtonsArray.includes(attribute)) {
     const element = document.querySelector(`[data-key-name=${attribute}]`);
-    textarea.setRangeText(element.textContent, textarea.selectionStart, textarea.selectionEnd, 'end');
+    if (element) {
+      textarea.setRangeText(element.textContent, textarea.selectionStart, textarea.selectionEnd, 'end');
+    }
   } else if (attribute === 'Enter') {
     textarea.setRangeText('\n', textarea.selectionStart, textarea.selectionEnd, 'end');
   } else if (attribute === 'Tab') {
@@ -219,12 +223,6 @@ window.addEventListener('click', () => {
 });
 
 window.addEventListener('keydown', (event) => {
-/*   const obj = {
-    code: event.code,
-    key: event.key,
-  };
-  console.log(obj); */
-
   event.preventDefault();
 
   if (event.repeat) {
@@ -297,56 +295,3 @@ newKeyboard.main.addEventListener('mouseup', (event) => {
     }));
   }
 });
-
-/* const array = [
-
-]
-
-window.addEventListener('keydown', (event) => {
-  const obj = {
-    code: event.code,
-    key: event.key
-  }
-  array.push(obj);
-})
-console.log(array); */
-/* const array = [
-
-]
-const btn = document.createElement('button');
-btn.textContent = 'GGGGGGGGG';
-body.append(btn);
-
-window.addEventListener('keydown', (event) => {
-  const obj = {
-    code: event.code,
-    key: event.key
-  }
-  console.log(obj)
-})
-
-btn.addEventListener('click', () => {
-  window.dispatchEvent(new KeyboardEvent('keydown', {
-      key: keyValues[0].key,
-      code: keyValues[0].code,
-    })
-  )
-   */
-/* const eve = new KeyboardEvent('keydown', {
-    key: keyValues[0].key,
-    code: keyValues[0].code,
-  })
-  window.addEventListener('eve', (event) => {
-    const obj = {
-      code: eve.code,
-      key: eve.key
-    }
-    array.push(obj);
-    console.log('ITS ARRAY: ' + array)
-  }) */
-// })
-
-/* const event = new KeyboardEvent('keydown', {
-  key: keyValues[0].key,
-  code: keyValues[0].code,
-}) */
