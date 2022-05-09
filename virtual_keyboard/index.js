@@ -1,9 +1,9 @@
-import keysEn from './script/keysEn.js';
-import keysRu from './script/keysRu.js';
-import keysEnShift from './script/keysEnShift.js';
-import keysRuShift from './script/keysRuShift.js';
+import keysEn from './script/keysEn';
+import keysRu from './script/keysRu';
+import keysEnShift from './script/keysEnShift';
+import keysRuShift from './script/keysRuShift';
 
-import Button from './script/classButton.js';
+import Button from './script/classButton';
 
 const body = document.querySelector('body');
 
