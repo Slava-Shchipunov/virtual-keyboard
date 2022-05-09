@@ -37,6 +37,22 @@ function buttonsTextChanger() {
   });
 }
 
+const setLocalStorage = () => {
+  localStorage.setItem('lang', lang);
+};
+
+window.addEventListener('beforeunload', setLocalStorage);
+
+const getLocalStorage = () => {
+  if (localStorage.getItem('lang')) {
+    lang = localStorage.getItem('lang');
+    keysArrayChanger();
+    buttonsTextChanger();
+  }
+};
+
+window.addEventListener('load', getLocalStorage);
+
 function pageGenerator() {
   const bodyWrapper = document.createElement('div');
   body.append(bodyWrapper);
