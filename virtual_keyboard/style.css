@@ -4,17 +4,27 @@
   font-style: normal;
   font-weight: 400;
 }
+
 *, ::before, ::after {
   font-family: inherit;
 }
 
 .body__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   height: 100vh;
   gap: 15px;
   padding: 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 .title {
@@ -31,7 +41,8 @@
   border-radius: 4px;
   background: rgba(255, 108, 75, 0.15);
   outline: none;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 3px 18px;
   max-width: 702px;
   width: 100%;
@@ -40,6 +51,7 @@
   margin-bottom: 30px;
   resize: none;
   margin: 0 auto;
+  color: #104096;
 }
 
 textarea::-webkit-scrollbar-thumb {
@@ -53,7 +65,8 @@ textarea::-webkit-scrollbar {
 }
 
 textarea::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 15px rgba(255, 108, 75, 0.3);
+  -webkit-box-shadow: inset 0 0 15px rgba(255, 108, 75, 0.3);
+          box-shadow: inset 0 0 15px rgba(255, 108, 75, 0.3);
 }
 
 .info {
@@ -78,8 +91,11 @@ textarea::-webkit-scrollbar-track {
 }
 
 .keyboard__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   width: 670px;
   gap: 4px;
   padding: 3px;
@@ -99,6 +115,7 @@ textarea::-webkit-scrollbar-track {
   border-left: solid 5px #E2E2E2;
   border-right: solid 5px #E2E2E2;
   border-bottom: solid 8px #E2E2E2;
+  -webkit-transition: 0.1s ease-in-out;
   transition: 0.1s ease-in-out;
 }
 
@@ -111,61 +128,61 @@ textarea::-webkit-scrollbar-track {
   outline: none;
 }
 
-[data-key-name=Backspace] {
+[data-key-name="Backspace"] {
   width: 98px;
 }
 
-[data-key-name=Tab] {
+[data-key-name="Tab"] {
   width: 64px;
 }
 
-[data-key-name=Backslash] {
+[data-key-name="Backslash"] {
   width: 74px;
 }
 
-[data-key-name=CapsLock] {
+[data-key-name="CapsLock"] {
   width: 79px;
 }
 
-[data-key-name=Enter] {
+[data-key-name="Enter"] {
   width: 103px;
 }
 
-[data-key-name=ShiftLeft] {
+[data-key-name="ShiftLeft"] {
   width: 98px;
 }
 
-[data-key-name=ShiftRight] {
+[data-key-name="ShiftRight"] {
   width: 40px;
 }
 
-[data-key-name=ControlLeft],
-[data-key-name=MetaLeft],
-[data-key-name=AltLeft] {
+[data-key-name="ControlLeft"],
+[data-key-name="MetaLeft"],
+[data-key-name="AltLeft"] {
   width: 50px;
 }
 
-[data-key-name=Space] {
+[data-key-name="Space"] {
   width: 288px;
 }
 
-[data-key-name=CapsLock],
-[data-key-name=Enter],
-[data-key-name=Space],
-[data-key-name=ArrowUp],
-[data-key-name=ArrowLeft],
-[data-key-name=ArrowDown],
-[data-key-name=ArrowRight],
-[data-key-name=Tab],
-[data-key-name=ShiftLeft],
-[data-key-name=ControlLeft],
-[data-key-name=MetaLeft],
-[data-key-name=AltLeft],
-[data-key-name=AltRight],
-[data-key-name=ControlRight],
-[data-key-name=ShiftRight],
-[data-key-name=Delete],
-[data-key-name=Backspace] {
+[data-key-name="CapsLock"],
+[data-key-name="Enter"],
+[data-key-name="Space"],
+[data-key-name="ArrowUp"],
+[data-key-name="ArrowLeft"],
+[data-key-name="ArrowDown"],
+[data-key-name="ArrowRight"],
+[data-key-name="Tab"],
+[data-key-name="ShiftLeft"],
+[data-key-name="ControlLeft"],
+[data-key-name="MetaLeft"],
+[data-key-name="AltLeft"],
+[data-key-name="AltRight"],
+[data-key-name="ControlRight"],
+[data-key-name="ShiftRight"],
+[data-key-name="Delete"],
+[data-key-name="Backspace"] {
   background-color: #356A8F;
   border-top: solid 2px #24577c;
   border-left: solid 5px #24577c;

@@ -18,6 +18,7 @@
     height: 100vh;
     gap: 15px;
     padding: 15px;
+    box-sizing: border-box;
 }
 
 .title {
@@ -43,6 +44,7 @@
     margin-bottom: 30px;
     resize: none;
     margin: 0 auto;
+    color: $char-color-blue;
 }
 
 textarea::-webkit-scrollbar-thumb {
