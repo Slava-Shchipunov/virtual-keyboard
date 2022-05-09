@@ -1,0 +1,187 @@
+@import './variables';
+
+@font-face {
+    font-family: Arial;
+    src: url("assets/fonts/Arial-Regular.woff");
+    font-style: normal;
+    font-weight: 400;
+}
+
+*, ::before, ::after {
+    font-family: inherit;
+}
+
+.body__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.title {
+    font-size: $fz2;
+    line-height: $lh1;
+    color: $char-color-blue;
+    text-shadow: $key-top2 0px 0px 30px;
+    margin: 0 auto;
+}
+
+.textarea {
+    display: block;
+    border: 2px solid $key-top3;
+    border-radius: 4px;
+    background: rgba(255, 108, 75, 0.15);
+    outline: none;
+    box-sizing: border-box;
+    padding: 3px 18px;
+    max-width: 702px;
+    width: 100%;
+    height: 140px;
+    min-height: 100px;
+    margin-bottom: 30px;
+    resize: none;
+    margin: 0 auto;
+    color: $char-color-blue;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 108, 75, 0.5);
+    border-radius: 10px;
+    outline: none;
+}
+
+textarea::-webkit-scrollbar {
+    width: 1em;
+}
+
+textarea::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px rgba(255, 108, 75, 0.3);
+}
+
+.info {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: $char-color-blue;
+    font-size: 1.15rem;
+}
+
+.keyboard {
+    padding: 13px;
+    background-color: $board-base-color;
+    width: fit-content;
+    border-radius: 4px;
+    font-family: Arial, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    margin: 0 auto;
+}
+
+.keyboard__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 670px;
+    gap: 4px;
+    padding: 3px;
+    background-color: $board-gap-color;
+    border-radius: 4px;
+}
+
+.button {
+    width: 40px;
+    height: 40px;
+    font-size: $fz1;
+    line-height: $lh1;
+    color: $char-color-blue;
+    background-color: $key-top1;
+    border-radius: 4px;
+    border-top: solid 2px $key-border1;
+    border-left: solid 5px $key-border1;
+    border-right: solid 5px $key-border1;
+    border-bottom: solid 8px $key-border1;
+    transition: 0.1s ease-in-out;
+}
+
+.button:hover {
+    cursor: pointer;
+    outline: 2px solid $key-top2;
+}
+
+.button:focus {
+    outline: none;
+}
+
+[data-key-name="Backspace"] {
+    width: 98px;
+}
+
+[data-key-name="Tab"] {
+    width: 64px;
+}
+
+[data-key-name="Backslash"] {
+    width: 74px;
+}
+
+[data-key-name="CapsLock"] {
+    width: 79px;
+}
+
+[data-key-name="Enter"] {
+    width: 103px;
+}
+
+[data-key-name="ShiftLeft"] {
+    width: 98px;
+}
+
+[data-key-name="ShiftRight"] {
+    width: 40px;
+}
+
+[data-key-name="ControlLeft"],
+[data-key-name="MetaLeft"],
+[data-key-name="AltLeft"] {
+    width: 50px;
+}
+
+[data-key-name="Space"] {
+    width: 288px;
+}
+
+[data-key-name="CapsLock"],
+[data-key-name="Enter"],
+[data-key-name="Space"],
+[data-key-name="ArrowUp"],
+[data-key-name="ArrowLeft"],
+[data-key-name="ArrowDown"],
+[data-key-name="ArrowRight"],
+[data-key-name="Tab"],
+[data-key-name="ShiftLeft"],
+[data-key-name="ControlLeft"],
+[data-key-name="MetaLeft"],
+[data-key-name="AltLeft"],
+[data-key-name="AltRight"],
+[data-key-name="ControlRight"],
+[data-key-name="ShiftRight"],
+[data-key-name="Delete"],
+[data-key-name="Backspace"] {
+    background-color: $key-top3;
+    border-top: solid 2px $key-border3;
+    border-left: solid 5px $key-border3;
+    border-right: solid 5px $key-border3;
+    border-bottom: solid 8px $key-border3;
+    color: $key-top2;
+}
+
+.active-button {
+    background-color: $key-top2;
+    border-top: solid 2px $key-border2;
+    border-left: solid 5px $key-border2;
+    border-right: solid 5px $key-border2;
+    border-bottom: solid 8px $key-border2;
+    color: $char-color-blue;
+}
